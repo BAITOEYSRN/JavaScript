@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@500&family=Raleway:ital,wght@0,200;0,500;0,700;1,200&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: Prompt, Arial, Helvetica, sans-serif;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+      .contianer {
+        margin-top: 50px;
+      }
+      .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 50px;
+        font-weight: lighter;
+      }
+      .result {
+        display: flex;
+        height: 70px;
+        background-color: rgba(233, 233, 233, 0.616);
+        font-family: Rajdhani, Arial, Helvetica, sans-serif;
+        align-items: center;
+        font-size: 50px;
+        /* font-weight: bold; */
+      }
+
+      .button {
+        margin: 10px 10px;
+      }
+
+      button {
+        padding: 5px 5px;
+        width: 80px;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(211, 211, 211);
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        border: none;
+        font-family: Rajdhani, Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        transition: 0.3;
+      }
+      button:active {
+        opacity: 0.5;
+        background-color: rgb(192, 192, 192, 0.842);
+      }
+      .orange-button {
+        font-size: 30px;
+        background-color: rgb(254, 160, 10);
+        color: white;
+      }
+      .orange-button:active {
+        opacity: 0.5;
+        background-color: rgba(254, 160, 10, 0.842);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contianer">
+      <div class="text">CALCULATOR</div>
+      <div class="result"></div>
+      <div class="button">
+        <div class="row1">
+          <button onclick="updateCalculation('7');">7</button>
+          <button onclick="updateCalculation('8');">8</button>
+          <button onclick="updateCalculation('9');">9</button>
+          <button class="orange-button" onclick="updateCalculation(' + ');">
+            +
+          </button>
+        </div>
+        <div class="row2">
+          <button onclick="updateCalculation('4');">4</button>
+          <button onclick="updateCalculation('5');">5</button>
+          <button onclick="updateCalculation('6');">6</button>
+          <button class="orange-button" onclick="updateCalculation(' - ');">
+            -
+          </button>
+        </div>
+        <div class="row3">
+          <button onclick="updateCalculation('1');">1</button>
+          <button onclick="updateCalculation('2');">2</button>
+          <button onclick="updateCalculation('3');">3</button>
+          <button class="orange-button" onclick="updateCalculation(' * ');">
+            *
+          </button>
+        </div>
+        <div class="row4">
+          <button onclick="updateCalculation('0');">0</button>
+          <button onclick="updateCalculation('.');">.</button>
+          <button
+            onclick="calculation =eval(calculation);
+           displayCalculation();
+           localStorage.setItem('calculation',calculation);
+          "
+          >
+            =
+          </button>
+          <!-- ฟังก์ชัน eval() ประเมินโค้ด JavaScript ที่แสดงเป็นสตริงและส่งกลับค่าที่สมบูรณ์  -->
+          <!--  Display the calculation on the page
+           instead of console.log
+          displayCalculation(); -->
+          <!-- Local Storage คือ การเก็บข้อมูลใส่ Local Storage แบบถาวร ข้อมูลจะหายไปก็ต่อเมื่อ clear Storage หรือกำหนดเวลาวันหมดอายุ -->
+          <!-- localStorage.setItem(key, value) คือ การเก็บข้อมูลลงใน Local Storage -->
+          <button class="orange-button" onclick="updateCalculation(' / ');">
+            /
+          </button>
+        </div>
+        <div class="row5">
+          <button
+            class="clear"
+            onclick="
+            calculation ='';
+            displayCalculation();
+
+            localStorage.setItem('calculation',calculation);
+            "
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let calculation = localStorage.getItem('calculation') || '';
+      //localStorage.getItem(key) คือ การเรียกใช้ข้อมูล key ของ Local Storage
+      displayCalculation();
+      function updateCalculation(value) {
+        calculation += value;
+        displayCalculation();
+        localStorage.setItem('calculation', calculation);
+      }
+      function displayCalculation() {
+        //querySelector คือคำสั่งสำหรับเข้าถึง element ตัวแรกที่พบ คำสั่งนี้เหมาะสำหรับการเข้าถึง
+        document.querySelector('.result').innerHTML = calculation;
+        //innerHTML เป็นคำสั่งที่ใช้แทรก HTML Tag ลงในตำแหน่งที่ต้องการ
+      }
+
+      const expression = new String('2+1');
+      //eval(string)
+      console.log(eval(String(expression)));
+      let x = 10;
+      let y = 20;
+      let text = 'x * y';
+      let result = eval(text);
+      console.log(result);
+    </script>
+  </body>
+</html>
