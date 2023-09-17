@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // let -> create a new variable
+      // variable1 -> variable name
+      // variable name restrictons:
+      // 1. Can't use special words
+      //   Example: let -> let let =3; #NO
+      //           let let1 =3; #YES
+      //           let let2 =3; #YES
+      // 2. Can't start with a number
+      //   Example: let 2name = 3; #NO
+      //           let n2me =3; #YES
+      //           let na2e =3; #YES
+      // 3. Can't use special characters escept: $ _
+      //   Example: let name#^% =3; #NO
+      //           let name two =3; #NO
+      //           let $name =3; #YES
+      //           let _name =3; #YES
+
+      // ; = end of an instruction Simlar to a . in English
+      //    Example: My name is Simon. I like tennis.
+      let variable1 = 3; //Assigning a value to a variable
+      console.log(variable1);
+
+      let calculation = 2 + 2;
+      console.log(calculation);
+      console.log(calculation + 2);
+
+      let result = calculation + 2; //calculation = 4
+      console.log(result);
+
+      let message = 'hello';
+      console.log(message + ';');
+      console.log(';');
+
+      variable1 = 5; //reassigning a value to a variable
+      //Don't use "let" when re-assigning
+      console.log(variable1);
+
+      variable1 = variable1 + 1;
+      console.log(variable1);
+
+      const variable2 = 3;
+      // variable2 = 5;
+      console.log(variable2);
+      console.log(typeof variable2);
+    </script>
+  </body>
+</html>
