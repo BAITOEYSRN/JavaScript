@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Quantity</title>
+    <style>
+      h1 {
+        align-items: center;
+        margin: 0;
+      }
+      button {
+        margin: 10px 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cart Quantity</h1>
+    <button
+      onclick="
+    console.log(`Cart Quantity:  ${cartQuantity}`); //${} inter value directly into string
+    "
+    >
+      Show Quantity
+    </button>
+    <button
+      onclick="
+    // cartQuantity = cartQuantity + 1;
+    cartQuantity += 1
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    "
+    >
+      Add to Cart
+    </button>
+    <button
+      onclick="
+    // cartQuantity = cartQuantity+ 2;
+    cartQuantity += 2;
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    "
+    >
+      +2
+    </button>
+    <button
+      onclick="
+    // cartQuantity = cartQuantity + 3;
+    cartQuantity += 3;
+    console.log(`cart Quantity : ${cartQuantity}`);
+    "
+    >
+      +3
+    </button>
+    <button
+      onclick="
+    cartQuantity = 0;
+    console.log('Cart was reset ...')
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    "
+    >
+      Reset Cart
+    </button>
+
+    <script>
+      let cartQuantity = 0;
+    </script>
+  </body>
+</html>
